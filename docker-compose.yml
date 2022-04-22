@@ -1,0 +1,59 @@
+version: '3'
+
+services:
+  node0:
+    container_name: node0
+    image: goldnet/gnchain
+    ports:
+      - "9090:9090"
+      - "26656-26657:26656-26657"
+    volumes:
+      - ./build/localnet/node0/.gnchain:/root/.gnchain
+    networks:
+      localnet:
+        ipv4_address: 192.168.10.2
+
+  node1:
+    container_name: node1
+    image: goldnet/gnchain
+    ports:
+      - "9091:9090"
+      - "26659-26660:26656-26657"
+    volumes:
+      - ./build/localnet/node1/.gnchain:/root/.gnchain
+    networks:
+      localnet:
+        ipv4_address: 192.168.10.3
+
+  node2:
+    container_name: node2
+    image: goldnet/gnchain
+    ports:
+      - "9092:9090"
+      - "26661-26662:26656-26657"
+    volumes:
+      - ./build/localnet/node2/.gnchain:/root/.gnchain
+    networks:
+      localnet:
+        ipv4_address: 192.168.10.4
+
+  node3:
+    container_name: node3
+    image: goldnet/gnchain
+    ports:
+      - "9093:9090"
+      - "26663-26664:26656-26657"
+    volumes:
+      - ./build/localnet/node3/.gnchain:/root/.gnchain
+    networks:
+      localnet:
+        ipv4_address: 192.168.10.5
+
+networks:
+  localnet:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      -
+        subnet: 192.168.10.0/16

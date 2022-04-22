@@ -1,0 +1,75 @@
+accounts:
+  - name: leader
+    mnemonic: "apology false junior asset sphere puppy upset dirt miracle rice horn spell ring vast wrist crisp snake oak give cement pause swallow barely clever"
+    coin_type: 118
+    algo: sm2
+    # address: gnc1qxcrws5mytpzwkk4tn4dyysw2ru96na3kvhk65
+    coins: ["99999000000ugnc"]
+    roles: ["ROOT_ADMIN"]
+    certificate:
+  - name: validator
+    mnemonic: "gossip wheel net riot retreat arrest ozone dragon funny undo bulb visa victory label slim domain network wage suit peanut tattoo text venture answer"
+    coin_type: 118
+    algo: sm2
+    # address: gnc13d59wpwv6swsn8z5xwk4vr2n67q20sps9zzefd
+    coins: ["1000000ugnc"]
+    certificate:
+  - address: gnc1ya2ecdjjg8t4p9x40tfyq7d8emnjkes3tllqt3
+    roles: ["ROOT_ADMIN"]
+    certificate:
+validators:
+  - name: validator
+    sef_delegation: "1000000ugnc"
+    commission_rate:
+    commission_max_rate:
+    commission_max_change_rate:
+    min_self_delegation:
+    moniker:
+    identity:
+    website:
+    security_contact:
+    details:
+init:
+  config:
+  app:
+    minimum-gas-prices: "0ugnc"
+  client:
+genesis:
+  app_state:
+    permission:
+      params:
+        enabled: false
+    bank:
+      denom_metadata:
+        - description: "base denom of gnc block chain"
+          base: "ugnc"
+          display: "gnc"
+          denom_units:
+            - denom: ugnc
+              exponent: 0
+            - denom: gnc
+              exponent: 6
+          name: "gnc network"
+          symbol: "GNC"
+    crisis:
+      constant_fee:
+        denom: ugnc
+    staking:
+      params:
+        bond_denom: ugnc
+    gov:
+      deposit_params:
+        min_deposit:
+          - denom: ugnc
+            amount: "10000000"
+    mint:
+      minter:
+        inflation: "0.000000000000000000"
+      params:
+        mint_denom: ugnc
+        inflation_rate_change: "0.000000000000000000"
+        inflation_min: "0.000000000000000000"
+
+
+
+

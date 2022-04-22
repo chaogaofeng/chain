@@ -1,0 +1,46 @@
+syntax = "proto3";
+package glodnet.chain.identity;
+
+// this line is used by starport scaffolding # proto/tx/import
+
+option go_package = "github.com/glodnet/chain/x/identity/types";
+
+// Msg defines the Msg service.
+service Msg {
+      rpc Create(MsgCreate) returns (MsgCreateResponse);
+  rpc Update(MsgUpdate) returns (MsgUpdateResponse);
+  rpc Remove(MsgRemove) returns (MsgRemoveResponse);
+// this line is used by starport scaffolding # proto/tx/rpc
+}
+
+message MsgCreate {
+  string creator = 1;
+  string certificate = 2;
+  string parent = 3;
+  string data = 4;
+}
+
+message MsgCreateResponse {
+  string address = 1;
+}
+
+message MsgUpdate {
+  string creator = 1;
+  string certificate = 2;
+  string parent = 3;
+  string data = 4;
+}
+
+message MsgUpdateResponse {
+  string address = 1;
+}
+
+message MsgRemove {
+  string creator = 1;
+  string address = 2;
+}
+
+message MsgRemoveResponse {
+}
+
+// this line is used by starport scaffolding # proto/tx/message

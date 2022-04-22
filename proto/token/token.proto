@@ -1,0 +1,17 @@
+syntax = "proto3";
+package glodnet.chain.token;
+
+import "gogoproto/gogo.proto";
+import "cosmos/bank/v1beta1/bank.proto";
+import "cosmos/base/v1beta1/coin.proto";
+
+option go_package = "github.com/glodnet/chain/x/token/types";
+
+message Token {
+  string symbol = 1;
+  string owner = 2; 
+  cosmos.base.v1beta1.Coin issued = 3 [(gogoproto.nullable) = false, (gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.Coin"];
+  cosmos.base.v1beta1.Coin burned = 4 [(gogoproto.nullable) = false, (gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.Coin"];
+  cosmos.bank.v1beta1.Metadata metadata = 5;
+}
+

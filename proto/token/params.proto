@@ -1,0 +1,13 @@
+syntax = "proto3";
+package glodnet.chain.token;
+
+import "gogoproto/gogo.proto";
+
+option go_package = "github.com/glodnet/chain/x/token/types";
+
+// Params defines the parameters for the module.
+message Params {
+  option (gogoproto.goproto_stringer) = false;
+  
+  bool enabled = 1 [(gogoproto.moretags) = "yaml:\"enabled\""];
+}

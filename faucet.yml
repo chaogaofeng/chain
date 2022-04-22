@@ -1,0 +1,18 @@
+#name is faucet account's name
+name: alice
+# mnemonic used to generate an account. This field is ignored if name already exists.
+mnemonic: "apology false junior asset sphere puppy upset dirt miracle rice horn spell ring vast wrist crisp snake oak give cement pause swallow barely clever"
+# coin_type number for HD derivation to generate an account.
+coin_type: 118
+# algo signing algorithm used to generate an account.
+algo: sm2
+#coins holds type of coin denoms and amounts to distribute.
+coins: ["100ugnc"]
+#coinsMax holds of chain denoms and their max amounts that can be transferred to single user.
+coins_max: ["2000ugnc"]
+#rate_limit_window sets the timeframe at the end of which the limit will be refreshed
+rate_limit_window:
+# host is the host of the faucet server
+host: 0.0.0.0:4500
+# api is the api of the blockchain node
+api: http://localhost:1317

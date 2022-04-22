@@ -1,0 +1,59 @@
+syntax = "proto3";
+package glodnet.chain.token;
+
+import "gogoproto/gogo.proto";
+import "google/api/annotations.proto";
+import "cosmos/base/query/v1beta1/pagination.proto";
+import "token/params.proto";
+import "token/token.proto";
+// this line is used by starport scaffolding # 1
+
+option go_package = "github.com/glodnet/chain/x/token/types";
+
+// Query defines the gRPC querier service.
+service Query {
+  // Parameters queries the parameters of the module.
+  rpc Params(QueryParamsRequest) returns (QueryParamsResponse) {
+    option (google.api.http).get = "/glodnet/chain/token/params";
+  }
+  // Queries a Token by index.
+	rpc Token(QueryGetTokenRequest) returns (QueryGetTokenResponse) {
+		option (google.api.http).get = "/glodnet/chain/token/token/{symbol}";
+	}
+
+	// Queries a list of Token items.
+	rpc TokenAll(QueryAllTokenRequest) returns (QueryAllTokenResponse) {
+		option (google.api.http).get = "/glodnet/chain/token/token";
+	}
+
+// this line is used by starport scaffolding # 2
+}
+
+// QueryParamsRequest is request type for the Query/Params RPC method.
+message QueryParamsRequest {}
+
+// QueryParamsResponse is response type for the Query/Params RPC method.
+message QueryParamsResponse {
+  // params holds all the parameters of this module.
+  Params params = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryGetTokenRequest {
+	  string symbol = 1;
+
+}
+
+message QueryGetTokenResponse {
+	Token token = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryAllTokenRequest {
+	cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryAllTokenResponse {
+	repeated Token token = 1 [(gogoproto.nullable) = false];
+	cosmos.base.query.v1beta1.PageResponse pagination = 2;
+}
+
+// this line is used by starport scaffolding # 3

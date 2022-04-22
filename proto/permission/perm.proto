@@ -1,0 +1,26 @@
+syntax = "proto3";
+package glodnet.chain.permission;
+
+import "gogoproto/gogo.proto";
+
+option go_package = "github.com/glodnet/chain/x/permission/types";
+option (gogoproto.goproto_getters_all) = false;
+option (gogoproto.goproto_registration) = true;
+
+// Role represents a role
+enum Role {
+    option (gogoproto.enum_stringer) = true;
+    option (gogoproto.goproto_enum_stringer) = false;
+    option (gogoproto.goproto_enum_prefix) = false;
+
+    // ROOT_ADMIN defines the root admin role index.
+    ROOT_ADMIN = 0 [(gogoproto.enumvalue_customname) = "RoleRootAdmin"];
+    // PERM_ADMIN defines the permission admin role index.
+    PERM_ADMIN = 1 [(gogoproto.enumvalue_customname) = "RolePermAdmin"];
+    // ID_ADMIN defines the identity admin role index.
+    ID_ADMIN = 2 [(gogoproto.enumvalue_customname) = "RoleIDAdmin"];
+    // TOKEN_ADMIN defines the token admin role index.
+    TOKEN_ADMIN = 3 [(gogoproto.enumvalue_customname) = "RoleTokenAdmin"];
+    // WASM_ADMIN defines the wasm admin role index.
+    WASM_ADMIN = 4 [(gogoproto.enumvalue_customname) = "RoleWasmAdmin"];
+}

@@ -1,0 +1,35 @@
+syntax = "proto3";
+package glodnet.chain.permission;
+
+import "permission/perm.proto";
+
+// this line is used by starport scaffolding # proto/tx/import
+
+option go_package = "github.com/glodnet/chain/x/permission/types";
+
+// Msg defines the Msg service.
+service Msg {
+      rpc Assign(MsgAssign) returns (MsgAssignResponse);
+  rpc Unassign(MsgUnassign) returns (MsgUnassignResponse);
+// this line is used by starport scaffolding # proto/tx/rpc
+}
+
+message MsgAssign {
+  string creator = 1;
+  string address = 2;
+  repeated Role roles = 3;
+}
+
+message MsgAssignResponse {
+}
+
+message MsgUnassign {
+  string creator = 1;
+  string address = 2;
+  repeated Role roles = 3;
+}
+
+message MsgUnassignResponse {
+}
+
+// this line is used by starport scaffolding # proto/tx/message

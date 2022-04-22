@@ -1,0 +1,50 @@
+syntax = "proto3";
+package glodnet.chain.token;
+
+// this line is used by starport scaffolding # proto/tx/import
+
+option go_package = "github.com/glodnet/chain/x/token/types";
+
+// Msg defines the Msg service.
+service Msg {
+      rpc Issue(MsgIssue) returns (MsgIssueResponse);
+  rpc Mint(MsgMint) returns (MsgMintResponse);
+  rpc Burn(MsgBurn) returns (MsgBurnResponse);
+// this line is used by starport scaffolding # proto/tx/rpc
+}
+
+message MsgIssue {
+  string creator = 1;
+  string base = 2;
+  string display = 3;
+  uint32 exponent = 4;
+  string name = 5;
+  string symbol = 6;
+  string desc = 7;
+  string amount = 8;
+  string to = 9;
+}
+
+message MsgIssueResponse {
+}
+
+message MsgMint {
+  string creator = 1;
+  string base = 2;
+  string amount = 3;
+  string to = 4;
+}
+
+message MsgMintResponse {
+}
+
+message MsgBurn {
+  string creator = 1;
+  string base = 2;
+  string amount = 3;
+}
+
+message MsgBurnResponse {
+}
+
+// this line is used by starport scaffolding # proto/tx/message

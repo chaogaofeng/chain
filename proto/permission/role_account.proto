@@ -1,0 +1,12 @@
+syntax = "proto3";
+package glodnet.chain.permission;
+
+import "permission/perm.proto";
+
+option go_package = "github.com/glodnet/chain/x/permission/types";
+
+message RoleAccount {
+  string address = 1; 
+  repeated Role roles = 2;
+}
+
