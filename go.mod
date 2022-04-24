@@ -5,8 +5,9 @@ go 1.16
 require (
 	github.com/CosmWasm/wasmd v0.24.0
 	github.com/cenkalti/backoff v2.2.1+incompatible
-	github.com/cosmos/cosmos-sdk v0.45.3
-	github.com/cosmos/ibc-go/v2 v2.0.3
+	github.com/cosmos/cosmos-sdk v0.45.4
+	github.com/cosmos/ibc-go/v3 v3.0.0
+	github.com/ethereum/go-ethereum v1.10.16
 	github.com/fatih/color v1.13.0
 	github.com/ghodss/yaml v1.0.0
 	github.com/goccy/go-yaml v1.9.4
@@ -19,6 +20,7 @@ require (
 	github.com/pelletier/go-toml v1.9.4
 	github.com/pkg/errors v0.9.1
 	github.com/prometheus/client_golang v1.12.1
+	github.com/rogpeppe/go-internal v1.6.2 // indirect
 	github.com/rs/cors v1.8.2
 	github.com/spf13/cast v1.4.1
 	github.com/spf13/cobra v1.4.0
@@ -28,18 +30,12 @@ require (
 	github.com/tendermint/starport v0.19.4
 	github.com/tendermint/tendermint v0.34.19
 	github.com/tendermint/tm-db v0.6.7
+	github.com/tharsis/ethermint v0.14.0
 	github.com/tjfoc/gmsm v1.4.0
 	google.golang.org/genproto v0.0.0-20220414192740-2d67ff6cf2b4
 	google.golang.org/grpc v1.45.0
 	gopkg.in/yaml.v2 v2.4.0
 )
-
-require (
-	github.com/rogpeppe/go-internal v1.6.2 // indirect
-	github.com/tharsis/ethermint v0.14.0
-)
-
-require github.com/ethereum/go-ethereum v1.10.16
 
 replace (
 	github.com/gogo/protobuf => github.com/regen-network/protobuf v1.3.3-alpha.regen.1
@@ -48,10 +44,9 @@ replace (
 )
 
 replace (
+	github.com/CosmWasm/wasmd => ../wasmd
 	github.com/cosmos/cosmos-sdk => ../cosmos-sdk
 	github.com/tendermint/tendermint => ../tendermint
-	github.com/tharsis/ethermint => ../ethermint
 // github.com/cosmos/cosmos-sdk => github.com/chaogaofeng/cosmos-sdk v0.45.1-gnchain-20220422
 // github.com/tendermint/tendermint => github.com/chaogaofeng/tendermint v0.34.16-gnchain-20220408
-// github.com/tharsis/ethermint => github.com/chaogaofeng/tendermint v0.14.0-gnchaind-20220422
 )

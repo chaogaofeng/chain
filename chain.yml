@@ -6,17 +6,14 @@ accounts:
     # address: gnc1qxcrws5mytpzwkk4tn4dyysw2ru96na3kvhk65
     coins: ["99999000000ugnc"]
     roles: ["ROOT_ADMIN"]
-    certificate:
   - name: validator
     mnemonic: "gossip wheel net riot retreat arrest ozone dragon funny undo bulb visa victory label slim domain network wage suit peanut tattoo text venture answer"
     coin_type: 118
     algo: sm2
     # address: gnc13d59wpwv6swsn8z5xwk4vr2n67q20sps9zzefd
     coins: ["1000000ugnc"]
-    certificate:
   - address: gnc1ya2ecdjjg8t4p9x40tfyq7d8emnjkes3tllqt3
     roles: ["ROOT_ADMIN"]
-    certificate:
 validators:
   - name: validator
     sef_delegation: "1000000ugnc"
@@ -31,10 +28,14 @@ validators:
     details:
 init:
   config:
+    consensus:
+      timeout_commit: "1000ms"
   app:
     minimum-gas-prices: "0ugnc"
   client:
 genesis:
+  genesis_time: 2022-04-12T05:35:29Z
+  chain_id: gnchain_45-1
   app_state:
     permission:
       params:

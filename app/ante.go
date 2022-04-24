@@ -2,10 +2,12 @@ package app
 
 import (
 	"fmt"
+	"github.com/cosmos/cosmos-sdk/types/tx/signing"
+	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 
 	wasmmodulekeeper "github.com/CosmWasm/wasmd/x/wasm/keeper"
-	authkeeper "github.com/cosmos/cosmos-sdk/x/auth/keeper"
-	bankkeeper "github.com/cosmos/cosmos-sdk/x/bank/keeper"
+	authsigning "github.com/cosmos/cosmos-sdk/x/auth/signing"
+
 	tmlog "github.com/tendermint/tendermint/libs/log"
 
 	"runtime/debug"
@@ -13,8 +15,8 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	authante "github.com/cosmos/cosmos-sdk/x/auth/ante"
-	channelkeeper "github.com/cosmos/ibc-go/v2/modules/core/04-channel/keeper"
-	ibcante "github.com/cosmos/ibc-go/v2/modules/core/ante"
+	ibcante "github.com/cosmos/ibc-go/v3/modules/core/ante"
+	ibckeeper "github.com/cosmos/ibc-go/v3/modules/core/keeper"
 	permissionmodulekeeper "github.com/glodnet/chain/x/permission/keeper"
 
 	wasmtypes "github.com/CosmWasm/wasmd/x/wasm/types"
@@ -25,12 +27,14 @@ import (
 // HandlerOptions extend the SDK's AnteHandler options by requiring the IBC
 // channel keeper.
 type HandlerOptions struct {
-	authante.HandlerOptions
+	AccountKeeper   evmtypes.AccountKeeper
+	BankKeeper      evmtypes.BankKeeper
+	IBCKeeper       *ibckeeper.Keeper
+	FeegrantKeeper  authante.FeegrantKeeper
+	SignModeHandler authsigning.SignModeHandler
+	SigGasConsumer  func(meter sdk.GasMeter, sig signing.SignatureV2, params authtypes.Params) error
 
-	AccountKeeper     authkeeper.AccountKeeper
-	BankKeeper        bankkeeper.Keeper
 	PermissionKeeper  permissionmodulekeeper.Keeper
-	IBCChannelkeeper  channelkeeper.Keeper
 	WasmConfig        *wasmtypes.WasmConfig
 	TXCounterStoreKey sdk.StoreKey
 	FeeMarketKeeper   evmtypes.FeeMarketKeeper
@@ -108,7 +112,7 @@ func NewAnteHandler(options HandlerOptions) (sdk.AnteHandler, error) {
 						// Note: signature verification uses EIP instead of the cosmos signature validator
 						evmante.NewEip712SigVerificationDecorator(options.AccountKeeper, options.SignModeHandler),
 						authante.NewIncrementSequenceDecorator(options.AccountKeeper),
-						ibcante.NewAnteDecorator(options.IBCChannelkeeper),
+						ibcante.NewAnteDecorator(options.IBCKeeper),
 						wasmmodulekeeper.NewLimitSimulationGasDecorator(options.WasmConfig.SimulationGasLimit), // after setup context to enforce limits early
 						wasmmodulekeeper.NewCountTXDecorator(options.TXCounterStoreKey),
 						permissionmodulekeeper.NewAuthDecorator(options.PermissionKeeper),
@@ -143,7 +147,7 @@ func NewAnteHandler(options HandlerOptions) (sdk.AnteHandler, error) {
 				authante.NewSigGasConsumeDecorator(options.AccountKeeper, options.SigGasConsumer),
 				authante.NewSigVerificationDecorator(options.AccountKeeper, options.SignModeHandler),
 				authante.NewIncrementSequenceDecorator(options.AccountKeeper),
-				ibcante.NewAnteDecorator(options.IBCChannelkeeper),
+				ibcante.NewAnteDecorator(options.IBCKeeper),
 				wasmmodulekeeper.NewLimitSimulationGasDecorator(options.WasmConfig.SimulationGasLimit), // after setup context to enforce limits early
 				wasmmodulekeeper.NewCountTXDecorator(options.TXCounterStoreKey),
 				permissionmodulekeeper.NewAuthDecorator(options.PermissionKeeper),

@@ -55,6 +55,22 @@ func chainInitHandler(cmd *cobra.Command, args []string) error {
 	if overwrite {
 		os.RemoveAll(homeDir)
 	}
+
+	path := "./chain.yml"
+	if len(args) > 0 {
+		path = args[0]
+	}
+
+	var conf Chain
+	if err := parseConfig(path, &conf, &Chain{}); err != nil {
+		return err
+	}
+	if conf.Genesis != nil {
+		if id, ok := conf.Genesis["chain_id"]; ok {
+			chainID = id.(string)
+		}
+	}
+
 	chainCommandOptions := []chaincmd.Option{
 		chaincmd.WithHome(homeDir),
 		chaincmd.WithChainID(chainID),
@@ -71,16 +87,6 @@ func chainInitHandler(cmd *cobra.Command, args []string) error {
 	//)
 	runner, err := chaincmdrunner.New(cmd.Context(), cc, ccrOptions...)
 	if err != nil {
-		return err
-	}
-
-	path := "./chain.yml"
-	if len(args) > 0 {
-		path = args[0]
-	}
-
-	var conf Chain
-	if err := parseConfig(path, &conf, &Chain{}); err != nil {
 		return err
 	}
 

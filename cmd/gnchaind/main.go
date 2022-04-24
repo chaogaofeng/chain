@@ -16,7 +16,7 @@ func main() {
 		app.Name,
 		app.AccountAddressPrefix,
 		app.DefaultNodeHome,
-		app.Name,
+		app.Name+"_45-1",
 		app.ModuleBasics,
 		app.New,
 		cosmoscmd.AddSubCmd(

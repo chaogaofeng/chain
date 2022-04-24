@@ -26,7 +26,6 @@ import (
 	"github.com/cosmos/cosmos-sdk/types/module"
 	"github.com/cosmos/cosmos-sdk/version"
 	"github.com/cosmos/cosmos-sdk/x/auth"
-	"github.com/cosmos/cosmos-sdk/x/auth/ante"
 	authrest "github.com/cosmos/cosmos-sdk/x/auth/client/rest"
 	authkeeper "github.com/cosmos/cosmos-sdk/x/auth/keeper"
 	authsims "github.com/cosmos/cosmos-sdk/x/auth/simulation"
@@ -80,16 +79,16 @@ import (
 	upgradeclient "github.com/cosmos/cosmos-sdk/x/upgrade/client"
 	upgradekeeper "github.com/cosmos/cosmos-sdk/x/upgrade/keeper"
 	upgradetypes "github.com/cosmos/cosmos-sdk/x/upgrade/types"
-	"github.com/cosmos/ibc-go/v2/modules/apps/transfer"
-	ibctransferkeeper "github.com/cosmos/ibc-go/v2/modules/apps/transfer/keeper"
-	ibctransfertypes "github.com/cosmos/ibc-go/v2/modules/apps/transfer/types"
-	ibc "github.com/cosmos/ibc-go/v2/modules/core"
-	ibcclient "github.com/cosmos/ibc-go/v2/modules/core/02-client"
-	ibcclientclient "github.com/cosmos/ibc-go/v2/modules/core/02-client/client"
-	ibcclienttypes "github.com/cosmos/ibc-go/v2/modules/core/02-client/types"
-	ibcporttypes "github.com/cosmos/ibc-go/v2/modules/core/05-port/types"
-	ibchost "github.com/cosmos/ibc-go/v2/modules/core/24-host"
-	ibckeeper "github.com/cosmos/ibc-go/v2/modules/core/keeper"
+	transfer "github.com/cosmos/ibc-go/v3/modules/apps/transfer"
+	ibctransferkeeper "github.com/cosmos/ibc-go/v3/modules/apps/transfer/keeper"
+	ibctransfertypes "github.com/cosmos/ibc-go/v3/modules/apps/transfer/types"
+	ibc "github.com/cosmos/ibc-go/v3/modules/core"
+	ibcclient "github.com/cosmos/ibc-go/v3/modules/core/02-client"
+	ibcclientclient "github.com/cosmos/ibc-go/v3/modules/core/02-client/client"
+	ibcclienttypes "github.com/cosmos/ibc-go/v3/modules/core/02-client/types"
+	ibcporttypes "github.com/cosmos/ibc-go/v3/modules/core/05-port/types"
+	ibchost "github.com/cosmos/ibc-go/v3/modules/core/24-host"
+	ibckeeper "github.com/cosmos/ibc-go/v3/modules/core/keeper"
 	"github.com/spf13/cast"
 	abci "github.com/tendermint/tendermint/abci/types"
 	tmjson "github.com/tendermint/tendermint/libs/json"
@@ -429,10 +428,11 @@ func New(
 	// Create Transfer Keepers
 	app.TransferKeeper = ibctransferkeeper.NewKeeper(
 		appCodec, keys[ibctransfertypes.StoreKey], app.GetSubspace(ibctransfertypes.ModuleName),
-		app.IBCKeeper.ChannelKeeper, &app.IBCKeeper.PortKeeper,
+		app.IBCKeeper.ChannelKeeper, app.IBCKeeper.ChannelKeeper, &app.IBCKeeper.PortKeeper,
 		app.AccountKeeper, app.BankKeeper, scopedTransferKeeper,
 	)
 	transferModule := transfer.NewAppModule(app.TransferKeeper)
+	transferIBCModule := transfer.NewIBCModule(app.TransferKeeper)
 
 	// Create evidence Keeper for to register the IBC light client misbehaviour evidence route
 	evidenceKeeper := evidencekeeper.NewKeeper(
@@ -472,7 +472,7 @@ func New(
 		wasmOpts...,
 	)
 	govRouter.AddRoute(wasmmodule.RouterKey, wasmmodule.NewWasmProposalHandler(app.WasmKeeper, GetEnabledProposals()))
-	wasmModule := wasmmodule.NewAppModule(appCodec, &app.WasmKeeper, app.StakingKeeper)
+	wasmModule := wasmmodule.NewAppModule(appCodec, &app.WasmKeeper, app.StakingKeeper, app.AccountKeeper, app.BankKeeper)
 
 	app.IdentityKeeper = *identitymodulekeeper.NewKeeper(
 		appCodec,
@@ -521,7 +521,7 @@ func New(
 
 	// Create static IBC router, add transfer route, then set and seal it
 	ibcRouter := ibcporttypes.NewRouter()
-	ibcRouter.AddRoute(ibctransfertypes.ModuleName, transferModule)
+	ibcRouter.AddRoute(ibctransfertypes.ModuleName, transferIBCModule)
 	ibcRouter.AddRoute(wasmmoduletypes.ModuleName, wasmmodule.NewIBCHandler(app.WasmKeeper, app.IBCKeeper.ChannelKeeper))
 	// this line is used by starport scaffolding # ibc/app/router
 	app.IBCKeeper.SetRouter(ibcRouter)
@@ -723,18 +723,16 @@ func New(
 	maxGasWanted := cast.ToUint64(appOpts.Get(srvflags.EVMMaxTxGasWanted))
 	anteHandler, err := NewAnteHandler(
 		HandlerOptions{
-			HandlerOptions: ante.HandlerOptions{
-				AccountKeeper:   app.AccountKeeper,
-				BankKeeper:      app.BankKeeper,
-				FeegrantKeeper:  app.FeeGrantKeeper,
-				SignModeHandler: encodingConfig.TxConfig.SignModeHandler(),
-				SigGasConsumer:  evmante.DefaultSigVerificationGasConsumer,
-			},
+			AccountKeeper:     app.AccountKeeper,
+			BankKeeper:        app.BankKeeper,
+			FeegrantKeeper:    app.FeeGrantKeeper,
+			SignModeHandler:   encodingConfig.TxConfig.SignModeHandler(),
+			SigGasConsumer:    evmante.DefaultSigVerificationGasConsumer,
 			PermissionKeeper:  app.PermissionKeeper,
 			FeeMarketKeeper:   app.FeeMarketKeeper,
 			EvmKeeper:         app.EvmKeeper,
 			MaxTxGasWanted:    maxGasWanted,
-			IBCChannelkeeper:  app.IBCKeeper.ChannelKeeper,
+			IBCKeeper:         app.IBCKeeper,
 			WasmConfig:        &wasmConfig,
 			TXCounterStoreKey: keys[wasmmoduletypes.StoreKey],
 		},
