@@ -44,9 +44,10 @@ replace (
 )
 
 replace (
-	github.com/CosmWasm/wasmd => ../wasmd
-	github.com/cosmos/cosmos-sdk => ../cosmos-sdk
-	github.com/tendermint/tendermint => ../tendermint
-// github.com/cosmos/cosmos-sdk => github.com/chaogaofeng/cosmos-sdk v0.45.1-gnchain-20220422
-// github.com/tendermint/tendermint => github.com/chaogaofeng/tendermint v0.34.16-gnchain-20220408
+	//github.com/CosmWasm/wasmd => ../wasmd
+	//github.com/cosmos/cosmos-sdk => ../cosmos-sdk
+	//github.com/tendermint/tendermint => ../tendermint
+	github.com/CosmWasm/wasmd => github.com/chaogaofeng/wasmd v0.27.1-gnchain-20220505
+	github.com/cosmos/cosmos-sdk => github.com/chaogaofeng/cosmos-sdk v0.45.4-gnchain-20220505
+	github.com/tendermint/tendermint => github.com/chaogaofeng/tendermint v0.34.19-gnchain-20220505
 )

@@ -94,6 +94,11 @@ endif
 ifeq ($(WITH_BOLTDB),yes)
   ldflags += -X github.com/cosmos/cosmos-sdk/types.DBBackend=boltdb
 endif
+
+ifeq ($(LINK_STATICALLY),true)
+	ldflags += -linkmode=external -extldflags "-Wl,-z,muldefs -static"
+endif
+
 ldflags += $(LDFLAGS)
 ldflags := $(strip $(ldflags))
 
@@ -240,12 +245,15 @@ proto-check-breaking:
 	test-sim-import-export \
 
 ###############################################################################
-###                                Localnet                                 ###
+###                                Docker                                 ###
 ###############################################################################
 
 docker:
-	docker build -t goldnet/gnchaind .
+	docker build -t glodnet/gnchaind .
 
+###############################################################################
+###                                Localnet                                 ###
+###############################################################################
 local-start:
 	if ! [ -f build/local/.gnchain/config/genesis.json ]; then docker run --rm -v ${PWD}/build/local/.gnchain:/root/.gnchain goldnet/gnchain /root/dev-setup.sh ; fi
 	docker run -d --rm -p 1317:1317 -p 26657:26657 -p 26656:26656 -v ${PWD}/build/local/.gnchain:/root/.gnchain --name local goldnet/gnchain

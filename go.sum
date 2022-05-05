@@ -297,6 +297,12 @@ github.com/cespare/xxhash v1.1.0/go.mod h1:XrSqR1VqqWfGrhpAt58auRo0WTKS1nRRg3ghf
 github.com/cespare/xxhash/v2 v2.1.1/go.mod h1:VGX0DQ3Q6kWi7AoAeZDth3/j3BFtOZR5XLFGgcrjCOs=
 github.com/cespare/xxhash/v2 v2.1.2 h1:YRXhKfTDauu4ajMg1TPgFO5jnlC2HCbmLXMcTG5cbYE=
 github.com/cespare/xxhash/v2 v2.1.2/go.mod h1:VGX0DQ3Q6kWi7AoAeZDth3/j3BFtOZR5XLFGgcrjCOs=
+github.com/chaogaofeng/cosmos-sdk v0.45.4-gnchain-20220505 h1:6u2mJoD7LKZzcCpJsn/tj9qLV6Gi3a3cED7cVkmPEKI=
+github.com/chaogaofeng/cosmos-sdk v0.45.4-gnchain-20220505/go.mod h1:F9VstVo+sy0HOz9ENIs3s9x+W1BXey+6Ey4LvLVxvWA=
+github.com/chaogaofeng/tendermint v0.34.19-gnchain-20220505 h1:s6l4gwz194/D+4WPXP+UrYS2sqw4OHfRcuCdtvW353c=
+github.com/chaogaofeng/tendermint v0.34.19-gnchain-20220505/go.mod h1:lWOoZNqFxia98NcgEXbbJBd4XfzBGkHf2WwEQa2G/uk=
+github.com/chaogaofeng/wasmd v0.27.1-gnchain-20220505 h1:NFC84jCge5vs6E/LvJ5CyMNtUJvSTXLvzq+qrdbZTJA=
+github.com/chaogaofeng/wasmd v0.27.1-gnchain-20220505/go.mod h1:ZR1ysVF4yjO1hYPkPMCDDIQJ7xwnpLADgZnIgGhgiA8=
 github.com/charmbracelet/bubbles v0.7.5/go.mod h1:IRTORFvhEI6OUH7WhN2Ks8Z8miNGimk1BE6cmHijOkM=
 github.com/charmbracelet/bubbles v0.7.6 h1:SCAp4ZEUf2tBNEsufo+Xxxu2dvbFhYSDPrX45toQZrM=
 github.com/charmbracelet/bubbles v0.7.6/go.mod h1:0D4XRYK0tjo8JMvflz1obpVcOikNZSG46SFauoZj22s=
