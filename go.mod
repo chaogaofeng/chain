@@ -47,6 +47,7 @@ replace (
 	github.com/CosmWasm/wasmd => ../wasmd
 	github.com/cosmos/cosmos-sdk => ../cosmos-sdk
 	github.com/tendermint/tendermint => ../tendermint
+	//github.com/CosmWasm/wasmd => github.com/chaogaofeng/wasmd gnchain-20220505
 	//github.com/cosmos/cosmos-sdk => github.com/chaogaofeng/cosmos-sdk gnchain-20220505
 	//github.com/tendermint/tendermint => github.com/chaogaofeng/tendermint gnchain-20220505
 )
