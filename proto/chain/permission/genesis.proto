@@ -2,8 +2,8 @@ syntax = "proto3";
 package glodnet.chain.permission;
 
 import "gogoproto/gogo.proto";
-import "permission/params.proto";
-import "permission/role_account.proto";
+import "chain/permission/params.proto";
+import "chain/permission/role_account.proto";
 // this line is used by starport scaffolding # genesis/proto/import
 
 option go_package = "github.com/glodnet/chain/x/permission/types";

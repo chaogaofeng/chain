@@ -1,29 +1,29 @@
 syntax = "proto3";
-package glodnet.chain.identity;
+package glodnet.chain.token;
 
 import "gogoproto/gogo.proto";
 import "google/api/annotations.proto";
 import "cosmos/base/query/v1beta1/pagination.proto";
-import "identity/params.proto";
-import "identity/identity.proto";
+import "chain/token/params.proto";
+import "chain/token/token.proto";
 // this line is used by starport scaffolding # 1
 
-option go_package = "github.com/glodnet/chain/x/identity/types";
+option go_package = "github.com/glodnet/chain/x/token/types";
 
 // Query defines the gRPC querier service.
 service Query {
   // Parameters queries the parameters of the module.
   rpc Params(QueryParamsRequest) returns (QueryParamsResponse) {
-    option (google.api.http).get = "/glodnet/chain/identity/params";
+    option (google.api.http).get = "/glodnet/chain/token/params";
   }
-  // Queries a Identity by index.
-	rpc Identity(QueryGetIdentityRequest) returns (QueryGetIdentityResponse) {
-		option (google.api.http).get = "/glodnet/chain/identity/identity/{address}";
+  // Queries a Token by index.
+	rpc Token(QueryGetTokenRequest) returns (QueryGetTokenResponse) {
+		option (google.api.http).get = "/glodnet/chain/token/token/{symbol}";
 	}
 
-	// Queries a list of Identity items.
-	rpc IdentityAll(QueryAllIdentityRequest) returns (QueryAllIdentityResponse) {
-		option (google.api.http).get = "/glodnet/chain/identity/identity";
+	// Queries a list of Token items.
+	rpc TokenAll(QueryAllTokenRequest) returns (QueryAllTokenResponse) {
+		option (google.api.http).get = "/glodnet/chain/token/token";
 	}
 
 // this line is used by starport scaffolding # 2
@@ -38,21 +38,21 @@ message QueryParamsResponse {
   Params params = 1 [(gogoproto.nullable) = false];
 }
 
-message QueryGetIdentityRequest {
-	  string address = 1;
+message QueryGetTokenRequest {
+	  string symbol = 1;
 
 }
 
-message QueryGetIdentityResponse {
-	Identity identity = 1 [(gogoproto.nullable) = false];
+message QueryGetTokenResponse {
+	Token token = 1 [(gogoproto.nullable) = false];
 }
 
-message QueryAllIdentityRequest {
+message QueryAllTokenRequest {
 	cosmos.base.query.v1beta1.PageRequest pagination = 1;
 }
 
-message QueryAllIdentityResponse {
-	repeated Identity identity = 1 [(gogoproto.nullable) = false];
+message QueryAllTokenResponse {
+	repeated Token token = 1 [(gogoproto.nullable) = false];
 	cosmos.base.query.v1beta1.PageResponse pagination = 2;
 }
 

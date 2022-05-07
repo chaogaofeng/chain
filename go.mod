@@ -3,7 +3,7 @@ module github.com/glodnet/chain
 go 1.16
 
 require (
-	github.com/CosmWasm/wasmd v0.24.0
+	github.com/CosmWasm/wasmd v0.27.0-rc0
 	github.com/cenkalti/backoff v2.2.1+incompatible
 	github.com/cosmos/cosmos-sdk v0.45.4
 	github.com/cosmos/ibc-go/v3 v3.0.0
@@ -44,10 +44,8 @@ replace (
 )
 
 replace (
-	//github.com/CosmWasm/wasmd => ../wasmd
 	//github.com/cosmos/cosmos-sdk => ../cosmos-sdk
 	//github.com/tendermint/tendermint => ../tendermint
-	github.com/CosmWasm/wasmd => github.com/chaogaofeng/wasmd v0.27.1-gnchain-20220505
 	github.com/cosmos/cosmos-sdk => github.com/chaogaofeng/cosmos-sdk v0.45.4-gnchain-20220505
 	github.com/tendermint/tendermint => github.com/chaogaofeng/tendermint v0.34.19-gnchain-20220505
 )

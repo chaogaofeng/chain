@@ -1,29 +1,29 @@
 syntax = "proto3";
-package glodnet.chain.permission;
+package glodnet.chain.identity;
 
 import "gogoproto/gogo.proto";
 import "google/api/annotations.proto";
 import "cosmos/base/query/v1beta1/pagination.proto";
-import "permission/params.proto";
-import "permission/role_account.proto";
+import "chain/identity/params.proto";
+import "chain/identity/identity.proto";
 // this line is used by starport scaffolding # 1
 
-option go_package = "github.com/glodnet/chain/x/permission/types";
+option go_package = "github.com/glodnet/chain/x/identity/types";
 
 // Query defines the gRPC querier service.
 service Query {
   // Parameters queries the parameters of the module.
   rpc Params(QueryParamsRequest) returns (QueryParamsResponse) {
-    option (google.api.http).get = "/glodnet/chain/permission/params";
+    option (google.api.http).get = "/glodnet/chain/identity/params";
   }
-  // Queries a RoleAccount by index.
-	rpc RoleAccount(QueryGetRoleAccountRequest) returns (QueryGetRoleAccountResponse) {
-		option (google.api.http).get = "/glodnet/chain/permission/role_account/{address}";
+  // Queries a Identity by index.
+	rpc Identity(QueryGetIdentityRequest) returns (QueryGetIdentityResponse) {
+		option (google.api.http).get = "/glodnet/chain/identity/identity/{address}";
 	}
 
-	// Queries a list of RoleAccount items.
-	rpc RoleAccountAll(QueryAllRoleAccountRequest) returns (QueryAllRoleAccountResponse) {
-		option (google.api.http).get = "/glodnet/chain/permission/role_account";
+	// Queries a list of Identity items.
+	rpc IdentityAll(QueryAllIdentityRequest) returns (QueryAllIdentityResponse) {
+		option (google.api.http).get = "/glodnet/chain/identity/identity";
 	}
 
 // this line is used by starport scaffolding # 2
@@ -38,21 +38,21 @@ message QueryParamsResponse {
   Params params = 1 [(gogoproto.nullable) = false];
 }
 
-message QueryGetRoleAccountRequest {
+message QueryGetIdentityRequest {
 	  string address = 1;
 
 }
 
-message QueryGetRoleAccountResponse {
-	RoleAccount roleAccount = 1 [(gogoproto.nullable) = false];
+message QueryGetIdentityResponse {
+	Identity identity = 1 [(gogoproto.nullable) = false];
 }
 
-message QueryAllRoleAccountRequest {
+message QueryAllIdentityRequest {
 	cosmos.base.query.v1beta1.PageRequest pagination = 1;
 }
 
-message QueryAllRoleAccountResponse {
-	repeated RoleAccount roleAccount = 1 [(gogoproto.nullable) = false];
+message QueryAllIdentityResponse {
+	repeated Identity identity = 1 [(gogoproto.nullable) = false];
 	cosmos.base.query.v1beta1.PageResponse pagination = 2;
 }
 

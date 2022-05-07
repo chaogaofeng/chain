@@ -1,0 +1,59 @@
+syntax = "proto3";
+package glodnet.chain.permission;
+
+import "gogoproto/gogo.proto";
+import "google/api/annotations.proto";
+import "cosmos/base/query/v1beta1/pagination.proto";
+import "chain/permission/params.proto";
+import "chain/permission/role_account.proto";
+// this line is used by starport scaffolding # 1
+
+option go_package = "github.com/glodnet/chain/x/permission/types";
+
+// Query defines the gRPC querier service.
+service Query {
+  // Parameters queries the parameters of the module.
+  rpc Params(QueryParamsRequest) returns (QueryParamsResponse) {
+    option (google.api.http).get = "/glodnet/chain/permission/params";
+  }
+  // Queries a RoleAccount by index.
+	rpc RoleAccount(QueryGetRoleAccountRequest) returns (QueryGetRoleAccountResponse) {
+		option (google.api.http).get = "/glodnet/chain/permission/role_account/{address}";
+	}
+
+	// Queries a list of RoleAccount items.
+	rpc RoleAccountAll(QueryAllRoleAccountRequest) returns (QueryAllRoleAccountResponse) {
+		option (google.api.http).get = "/glodnet/chain/permission/role_account";
+	}
+
+// this line is used by starport scaffolding # 2
+}
+
+// QueryParamsRequest is request type for the Query/Params RPC method.
+message QueryParamsRequest {}
+
+// QueryParamsResponse is response type for the Query/Params RPC method.
+message QueryParamsResponse {
+  // params holds all the parameters of this module.
+  Params params = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryGetRoleAccountRequest {
+	  string address = 1;
+
+}
+
+message QueryGetRoleAccountResponse {
+	RoleAccount roleAccount = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryAllRoleAccountRequest {
+	cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryAllRoleAccountResponse {
+	repeated RoleAccount roleAccount = 1 [(gogoproto.nullable) = false];
+	cosmos.base.query.v1beta1.PageResponse pagination = 2;
+}
+
+// this line is used by starport scaffolding # 3

@@ -1,7 +1,7 @@
 syntax = "proto3";
 package glodnet.chain.permission;
 
-import "permission/perm.proto";
+import "chain/permission/perm.proto";
 
 // this line is used by starport scaffolding # proto/tx/import
 

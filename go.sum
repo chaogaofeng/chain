@@ -102,8 +102,10 @@ github.com/BurntSushi/toml v1.1.0/go.mod h1:CxXYINrC8qIiEnFrOxCa7Jy5BFHlXnUU2pbi
 github.com/BurntSushi/xgb v0.0.0-20160522181843-27f122750802/go.mod h1:IVnqGOEym/WlBOVXweHU+Q+/VP0lqqI8lqeDx9IjBqo=
 github.com/ChainSafe/go-schnorrkel v0.0.0-20200405005733-88cbf1b4c40d h1:nalkkPQcITbvhmL4+C4cKA87NW0tfm3Kl9VXRoPywFg=
 github.com/ChainSafe/go-schnorrkel v0.0.0-20200405005733-88cbf1b4c40d/go.mod h1:URdX5+vg25ts3aCh8H5IFZybJYKWhJHYMTnf+ULtoC4=
-github.com/CosmWasm/wasmvm v1.0.0-beta10 h1:N99+PRcrh4FeDP1xQuJGaAsr+7U+TZAHKG8mybnAsKU=
-github.com/CosmWasm/wasmvm v1.0.0-beta10/go.mod h1:y+yd9piV8KlrB7ISRZz1sDwH4UVm4Q9rEX9501dBNog=
+github.com/CosmWasm/wasmd v0.27.0-rc0 h1:uy3aSzcindPUdTufiHvSqiSXNhw1YpF+InI3rfadV8Q=
+github.com/CosmWasm/wasmd v0.27.0-rc0/go.mod h1:qvvWSWbcL9wwXd1DgQH3a/P1GhAA4BkQlqnQzLxnh8s=
+github.com/CosmWasm/wasmvm v1.0.0-rc.0 h1:YI0ytwQZewPhSNxlqsrZ3/bVKTYXmrR1bfVapleCXWk=
+github.com/CosmWasm/wasmvm v1.0.0-rc.0/go.mod h1:ei0xpvomwSdONsxDuONzV7bL1jSET1M8brEx0FCXc+A=
 github.com/DATA-DOG/go-sqlmock v1.3.3/go.mod h1:f/Ixk793poVmq4qj/V1dPUg2JEAKC73Q5eFN3EC/SaM=
 github.com/DATA-DOG/go-sqlmock v1.5.0/go.mod h1:f/Ixk793poVmq4qj/V1dPUg2JEAKC73Q5eFN3EC/SaM=
 github.com/DataDog/datadog-go v3.2.0+incompatible/go.mod h1:LButxg5PwREeZtORoXG3tL4fMGNddJ+vMq1mwgfaqoQ=
@@ -301,8 +303,6 @@ github.com/chaogaofeng/cosmos-sdk v0.45.4-gnchain-20220505 h1:6u2mJoD7LKZzcCpJsn
 github.com/chaogaofeng/cosmos-sdk v0.45.4-gnchain-20220505/go.mod h1:F9VstVo+sy0HOz9ENIs3s9x+W1BXey+6Ey4LvLVxvWA=
 github.com/chaogaofeng/tendermint v0.34.19-gnchain-20220505 h1:s6l4gwz194/D+4WPXP+UrYS2sqw4OHfRcuCdtvW353c=
 github.com/chaogaofeng/tendermint v0.34.19-gnchain-20220505/go.mod h1:lWOoZNqFxia98NcgEXbbJBd4XfzBGkHf2WwEQa2G/uk=
-github.com/chaogaofeng/wasmd v0.27.1-gnchain-20220505 h1:NFC84jCge5vs6E/LvJ5CyMNtUJvSTXLvzq+qrdbZTJA=
-github.com/chaogaofeng/wasmd v0.27.1-gnchain-20220505/go.mod h1:ZR1ysVF4yjO1hYPkPMCDDIQJ7xwnpLADgZnIgGhgiA8=
 github.com/charmbracelet/bubbles v0.7.5/go.mod h1:IRTORFvhEI6OUH7WhN2Ks8Z8miNGimk1BE6cmHijOkM=
 github.com/charmbracelet/bubbles v0.7.6 h1:SCAp4ZEUf2tBNEsufo+Xxxu2dvbFhYSDPrX45toQZrM=
 github.com/charmbracelet/bubbles v0.7.6/go.mod h1:0D4XRYK0tjo8JMvflz1obpVcOikNZSG46SFauoZj22s=
