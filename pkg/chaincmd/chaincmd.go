@@ -39,6 +39,7 @@ const (
 	optionGasAdjustment                    = "--gas-adjustment"
 	optionGasPrices                        = "--gas-prices"
 	optionValidatorMoniker                 = "--moniker"
+	optionValidatorIP                 	   = "--ip"
 	optionValidatorCommissionRate          = "--commission-rate"
 	optionValidatorCommissionMaxRate       = "--commission-max-rate"
 	optionValidatorCommissionMaxChangeRate = "--commission-max-change-rate"
@@ -330,6 +331,16 @@ func GentxWithMoniker(moniker string) GentxOption {
 	return func(command []string) []string {
 		if len(moniker) > 0 {
 			return append(command, optionValidatorMoniker, moniker)
+		}
+		return command
+	}
+}
+
+// GentxWithIP provides ip option for the gentx command
+func GentxWithIP(ip string) GentxOption {
+	return func(command []string) []string {
+		if len(ip) > 0 {
+			return append(command, optionValidatorIP, ip)
 		}
 		return command
 	}

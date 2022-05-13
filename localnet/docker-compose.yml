@@ -1,0 +1,69 @@
+version: '3.6'
+
+services:
+  node0:
+    container_name: node0
+    image: glodnet/gnchaind
+    restart: always
+    environment:
+      WAIT_HOSTS:
+      NODE_HOSTS: node0
+      RECOVER: "gossip wheel net riot retreat arrest ozone dragon funny undo bulb visa victory label slim domain network wage suit peanut tattoo text venture answer"
+      GNCHAIND_MONIKER: "node0"
+      GNCHAIND_API_ENABLE: "true"
+      GNCHAIND_API_ENABLED_UNSAFE_CORS: "true"
+    ports:
+      - "1317:1317"
+      - "9090:9090"
+      - "26656-26657:26656-26657"
+    command: sh -c "/wait && /init.sh && /run.sh"
+    volumes:
+      - ./chain.yml:/root/chain.yml
+      - node0-data:/root/.gnchain
+  node1:
+    container_name: node1
+    restart: always
+    image: glodnet/gnchaind
+    environment:
+      WAIT_HOSTS: node0:26657
+      NODE_HOSTS: node0
+      RECOVER: "setup inflict endorse demand critic swallow belt tube lobster smoke clinic peasant dirt theme legal crystal wild envelope seven urban blue unveil lawn exist"
+      GNCHAIND_MONIKER: node1
+      GNCHAIND_API_ENABLE: "true"
+    command: sh -c "/wait && /init.sh && /run.sh"
+    volumes:
+      - ./chain.yml:/root/chain.yml
+      - node1-data:/root/.gnchain
+  node2:
+    container_name: node2
+    image: glodnet/gnchaind
+    restart: always
+    environment:
+      WAIT_HOSTS: node0:26657
+      NODE_HOSTS: node0
+      RECOVER: "aim dad concert find miss add axis addict mesh tuna margin garden reject point gossip bright foot soft total envelope blood praise zone gravity"
+      GNCHAIND_MONIKER: node2
+      GNCHAIND_API_ENABLE: "true"
+    command: sh -c "/wait && /init.sh && /run.sh"
+    volumes:
+      - ./chain.yml:/root/chain.yml
+      - node2-data:/root/.gnchain
+  node3:
+    container_name: node3
+    image: glodnet/gnchaind
+    restart: always
+    environment:
+      WAIT_HOSTS: node0:26657
+      NODE_HOSTS: node0
+      RECOVER: "brown surface body omit unique usual bean dance kidney spider treat decrease friend exhaust exercise guitar quick clinic cotton depend giggle allow fitness master"
+      GNCHAIND_MONIKER: node3
+      GNCHAIND_API_ENABLE: "true"
+    command: sh -c "/wait && /init.sh && /run.sh"
+    volumes:
+      - ./chain.yml:/root/chain.yml
+      - node3-data:/root/.gnchain
+volumes:
+  node0-data:
+  node1-data:
+  node2-data:
+  node3-data:

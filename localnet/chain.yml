@@ -2,7 +2,7 @@ accounts:
   - name: leader
     mnemonic: "apology false junior asset sphere puppy upset dirt miracle rice horn spell ring vast wrist crisp snake oak give cement pause swallow barely clever"
     coin_type: 118
-    algo: sm2
+    algo: secp256k1
     # address: gnc1qxcrws5mytpzwkk4tn4dyysw2ru96na3kvhk65
     coins: ["99999000000ugnc"]
     roles: ["ROOT_ADMIN"]
@@ -12,10 +12,61 @@ accounts:
     algo: sm2
     # address: gnc13d59wpwv6swsn8z5xwk4vr2n67q20sps9zzefd
     coins: ["1000000ugnc"]
+  - name: validator2
+    mnemonic: "setup inflict endorse demand critic swallow belt tube lobster smoke clinic peasant dirt theme legal crystal wild envelope seven urban blue unveil lawn exist"
+    coin_type: 118
+    algo: sm2
+    # address: gnc13d59wpwv6swsn8z5xwk4vr2n67q20sps9zzefd
+    coins: ["1000000ugnc"]
+  - name: validator3
+    mnemonic: "aim dad concert find miss add axis addict mesh tuna margin garden reject point gossip bright foot soft total envelope blood praise zone gravity"
+    coin_type: 118
+    algo: sm2
+    # address: gnc13d59wpwv6swsn8z5xwk4vr2n67q20sps9zzefd
+    coins: ["1000000ugnc"]
+  - name: validator4
+    mnemonic: "brown surface body omit unique usual bean dance kidney spider treat decrease friend exhaust exercise guitar quick clinic cotton depend giggle allow fitness master"
+    coin_type: 118
+    algo: sm2
+    # address: gnc13d59wpwv6swsn8z5xwk4vr2n67q20sps9zzefd
+    coins: ["1000000ugnc"]
   - address: gnc1ya2ecdjjg8t4p9x40tfyq7d8emnjkes3tllqt3
     roles: ["ROOT_ADMIN"]
 validators:
   - name: validator1
+    sef_delegation: "1000000ugnc"
+    commission_rate:
+    commission_max_rate:
+    commission_max_change_rate:
+    min_self_delegation:
+    moniker:
+    identity:
+    website:
+    security_contact:
+    details:
+  - name: validator2
+    sef_delegation: "1000000ugnc"
+    commission_rate:
+    commission_max_rate:
+    commission_max_change_rate:
+    min_self_delegation:
+    moniker:
+    identity:
+    website:
+    security_contact:
+    details:
+  - name: validator3
+    sef_delegation: "1000000ugnc"
+    commission_rate:
+    commission_max_rate:
+    commission_max_change_rate:
+    min_self_delegation:
+    moniker:
+    identity:
+    website:
+    security_contact:
+    details:
+  - name: validator4
     sef_delegation: "1000000ugnc"
     commission_rate:
     commission_max_rate:

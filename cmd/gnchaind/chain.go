@@ -188,11 +188,16 @@ func initChain(ctx context.Context, runner chaincmdrunner.Runner, conf *Chain) e
 			return err
 		}
 
+		validatorMoniker := v.Name
+		if len(v.Moniker) != 0 {
+			validatorMoniker = v.Moniker
+		}
 		_, err := trunner.Gentx(
 			ctx,
 			v.Name,
 			v.StakingAmount,
-			chaincmd.GentxWithMoniker(v.Moniker),
+			chaincmd.GentxWithIP("0.0.0.0"),
+			chaincmd.GentxWithMoniker(validatorMoniker),
 			chaincmd.GentxWithCommissionRate(v.CommissionRate),
 			chaincmd.GentxWithCommissionMaxRate(v.CommissionMaxRate),
 			chaincmd.GentxWithCommissionMaxChangeRate(v.CommissionMaxChangeRate),

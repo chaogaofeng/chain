@@ -70,7 +70,6 @@ func (k *Keeper) Authorize(ctx sdk.Context, address string, creator string, rs .
 		if !creatorAuth.IsRootAdmin() && !creatorAuth.Access(r.Auth()) {
 			return sdkerrors.Wrapf(types.ErrUnauthorizedOperation, "can not add %s role", r.String())
 		}
-		fmt.Println("chaogaofeng====", addressAuth, r, r.Auth(), addressAuth|r.Auth())
 		addressAuth = addressAuth | r.Auth()
 	}
 

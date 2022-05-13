@@ -6,7 +6,7 @@ COMMIT := $(shell git log -1 --format='%H')
 LEDGER_ENABLED ?= true
 SDK_PACK := $(shell go list -m github.com/cosmos/cosmos-sdk | sed  's/ /\@/g')
 TM_VERSION := $(shell go list -m github.com/tendermint/tendermint | sed 's:.* ::') # grab everything after the space in "github.com/tendermint/tendermint v0.34.7"
-ALGO := sm2
+ALGO ?= sm2
 BUILDDIR ?= $(CURDIR)/build
 SIMAPP = ./app
 
@@ -248,30 +248,21 @@ proto-check-breaking:
 ###                                Docker                                 ###
 ###############################################################################
 
-docker:
+docker: docker-sm2
+
+docker-ed25519:
 	docker build -t glodnet/gnchaind .
+
+docker-sm2:
+	docker build --build-arg ALGO=sm2 -t glodnet/gnchaind .
 
 ###############################################################################
 ###                                Localnet                                 ###
 ###############################################################################
-local-start:
-	if ! [ -f build/local/.gnchain/config/genesis.json ]; then docker run --rm -v ${PWD}/build/local/.gnchain:/root/.gnchain goldnet/gnchain /root/dev-setup.sh ; fi
-	docker run -d --rm -p 1317:1317 -p 26657:26657 -p 26656:26656 -v ${PWD}/build/local/.gnchain:/root/.gnchain --name local goldnet/gnchain
-
-local-stop:
-	docker stop local
-
-local-clear:
-	rm -rf ${PWD}/build/local
-
 localnet-start:
-	if ! [ -f build/node0/.gnchain/config/genesis.json ]; then docker run --rm -v ${PWD}/build/localnet:/root/localnet goldnet/gnchain gnchaind testnet --v 4 -o ./localnet --starting-ip-address 192.168.10.2 --chain-id testing --keyring-backend=test; fi
-	docker-compose up -d
+	docker-compose -f docker-compose.yml up -d
 
 localnet-stop:
-	docker-compose down
-
-localnet-clear:
-	rm -rf ${PWD}/build/localnet
+	docker-compose -f docker-compose.yml down -v
 
 .PHONY: docker

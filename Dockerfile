@@ -1,4 +1,5 @@
 FROM golang:1.17-alpine AS go-builder
+ARG ALGO=ed25519
 
 # Install minimum necessary dependencies
 RUN apk update && apk add --no-cache build-base make git libc-dev openssl
@@ -6,16 +7,19 @@ RUN apk update && apk add --no-cache build-base make git libc-dev openssl
 # RUN apk add libusb-dev linux-headers
 
 # See https://github.com/CosmWasm/wasmvm/releases
-ADD https://github.com/CosmWasm/wasmvm/releases/download/v1.0.0-beta10/libwasmvm_muslc.x86_64.a /lib/libwasmvm_muslc.a
-RUN sha256sum /lib/libwasmvm_muslc.a | grep 2f44efa9c6c1cda138bd1f46d8d53c5ebfe1f4a53cf3457b01db86472c4917ac
+ADD https://github.com/CosmWasm/wasmvm/releases/download/v1.0.0/libwasmvm_muslc.x86_64.a /lib/libwasmvm_muslc.a
+RUN sha256sum /lib/libwasmvm_muslc.a | grep f6282df732a13dec836cda1f399dd874b1e3163504dbd9607c6af915b2740479
 
 WORKDIR /code
 COPY . /code/
 # force it to use static lib (from above) not standard libgo_cosmwasm.so file
-RUN LEDGER_ENABLED=false BUILD_TAGS=muslc LINK_STATICALLY=true make build
+RUN ALGO=$ALGO LEDGER_ENABLED=false BUILD_TAGS=muslc LINK_STATICALLY=true make build
 
 # --------------------------------------------------------
 FROM alpine
+RUN apk add --no-cache jq
+ADD https://github.com/ufoscout/docker-compose-wait/releases/download/2.9.0/wait /wait
+RUN chmod +x /wait
 
 ## Set up dependencies
 #ENV PACKAGES make gcc perl wget
@@ -29,10 +33,9 @@ FROM alpine
 #    && cd ../ && rm -fr openssl-openssl-3.0.2
 
 COPY --from=go-builder /code/build/gnchaind /usr/bin/gnchaind
+COPY docker/* /
 
 WORKDIR /root
-
-COPY docker/* /root
 
 # rest server
 EXPOSE 1317
@@ -41,4 +44,4 @@ EXPOSE 26656
 # tendermint rpc
 EXPOSE 26657
 
-CMD ["/root/run.sh"]
+CMD ["sh", "-c", "/wait && /run.sh"]
