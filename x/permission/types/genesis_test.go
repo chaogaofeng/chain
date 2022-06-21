@@ -3,7 +3,7 @@ package types_test
 import (
 	"testing"
 
-	"github.com/glodnet/chain/x/permission/types"
+	"github.com/goldnet/chain/x/permission/types"
 	"github.com/stretchr/testify/require"
 )
 

@@ -3,7 +3,7 @@ package keeper
 import (
 	"github.com/cosmos/cosmos-sdk/store/prefix"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/glodnet/chain/x/identity/types"
+	"github.com/goldnet/chain/x/identity/types"
 )
 
 // SetIdentity set a specific identity in the store from its index

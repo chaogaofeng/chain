@@ -4,7 +4,7 @@ import (
 	"encoding/hex"
 	"fmt"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
-	"github.com/glodnet/chain/pkg/cacmd/ca"
+	"github.com/goldnet/chain/pkg/cacmd/ca"
 	abci "github.com/tendermint/tendermint/abci/types"
 
 	"github.com/tendermint/tendermint/libs/log"
@@ -12,7 +12,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/codec"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	paramtypes "github.com/cosmos/cosmos-sdk/x/params/types"
-	"github.com/glodnet/chain/x/identity/types"
+	"github.com/goldnet/chain/x/identity/types"
 )
 
 type (

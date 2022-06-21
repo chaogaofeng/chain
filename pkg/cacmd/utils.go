@@ -14,7 +14,7 @@ import (
 	cryptosm2 "github.com/cosmos/cosmos-sdk/crypto/keys/sm2"
 	cryptotypes "github.com/cosmos/cosmos-sdk/crypto/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
-	"github.com/glodnet/chain/pkg/cacmd/ca"
+	"github.com/goldnet/chain/pkg/cacmd/ca"
 	tmcrypto "github.com/tendermint/tendermint/crypto"
 	"github.com/tendermint/tendermint/crypto/algo"
 	tmed25519 "github.com/tendermint/tendermint/crypto/ed25519"

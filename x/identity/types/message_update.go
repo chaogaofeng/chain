@@ -4,7 +4,7 @@ import (
 	cryptocodec "github.com/cosmos/cosmos-sdk/crypto/codec"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
-	"github.com/glodnet/chain/pkg/cacmd/ca"
+	"github.com/goldnet/chain/pkg/cacmd/ca"
 )
 
 const TypeMsgUpdate = "update"

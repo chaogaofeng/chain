@@ -5,9 +5,9 @@ import (
 	"testing"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	keepertest "github.com/glodnet/chain/testutil/keeper"
-	"github.com/glodnet/chain/x/token/keeper"
-	"github.com/glodnet/chain/x/token/types"
+	keepertest "github.com/goldnet/chain/testutil/keeper"
+	"github.com/goldnet/chain/x/token/keeper"
+	"github.com/goldnet/chain/x/token/types"
 )
 
 func setupMsgServer(t testing.TB) (types.MsgServer, context.Context) {

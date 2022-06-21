@@ -9,9 +9,9 @@ import (
 	"github.com/cosmos/cosmos-sdk/types/module"
 	simtypes "github.com/cosmos/cosmos-sdk/types/simulation"
 	"github.com/cosmos/cosmos-sdk/x/simulation"
-	"github.com/glodnet/chain/testutil/sample"
-	tokensimulation "github.com/glodnet/chain/x/token/simulation"
-	"github.com/glodnet/chain/x/token/types"
+	"github.com/goldnet/chain/testutil/sample"
+	tokensimulation "github.com/goldnet/chain/x/token/simulation"
+	"github.com/goldnet/chain/x/token/types"
 )
 
 // avoid unused import issue

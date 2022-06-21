@@ -1,9 +1,9 @@
 package main
 
 import (
-	identitycli "github.com/glodnet/chain/x/identity/client/cli"
-	permissioncli "github.com/glodnet/chain/x/permission/client/cli"
-	tokencli "github.com/glodnet/chain/x/token/client/cli"
+	identitycli "github.com/goldnet/chain/x/identity/client/cli"
+	permissioncli "github.com/goldnet/chain/x/permission/client/cli"
+	tokencli "github.com/goldnet/chain/x/token/client/cli"
 	"github.com/spf13/cobra"
 )
 

@@ -7,7 +7,7 @@ import (
 	starportcmd "github.com/tendermint/starport/starport/cmd"
 
 	svrcmd "github.com/cosmos/cosmos-sdk/server/cmd"
-	"github.com/glodnet/chain/app"
+	"github.com/goldnet/chain/app"
 	"github.com/tendermint/starport/starport/pkg/cosmoscmd"
 )
 

@@ -3,7 +3,7 @@ package keeper
 import (
 	"github.com/cosmos/cosmos-sdk/store/prefix"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/glodnet/chain/x/token/types"
+	"github.com/goldnet/chain/x/token/types"
 )
 
 // SetToken set a specific token in the store from its index

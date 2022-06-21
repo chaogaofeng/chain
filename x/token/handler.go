@@ -5,8 +5,8 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
-	"github.com/glodnet/chain/x/token/keeper"
-	"github.com/glodnet/chain/x/token/types"
+	"github.com/goldnet/chain/x/token/keeper"
+	"github.com/goldnet/chain/x/token/types"
 )
 
 // NewHandler ...

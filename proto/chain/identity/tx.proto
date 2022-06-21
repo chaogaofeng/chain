@@ -3,7 +3,7 @@ package glodnet.chain.identity;
 
 // this line is used by starport scaffolding # proto/tx/import
 
-option go_package = "github.com/glodnet/chain/x/identity/types";
+option go_package = "github.com/goldnet/chain/x/identity/types";
 
 // Msg defines the Msg service.
 service Msg {

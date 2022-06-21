@@ -6,8 +6,8 @@ import (
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	simtypes "github.com/cosmos/cosmos-sdk/types/simulation"
-	"github.com/glodnet/chain/x/token/keeper"
-	"github.com/glodnet/chain/x/token/types"
+	"github.com/goldnet/chain/x/token/keeper"
+	"github.com/goldnet/chain/x/token/types"
 )
 
 func SimulateMsgMint(

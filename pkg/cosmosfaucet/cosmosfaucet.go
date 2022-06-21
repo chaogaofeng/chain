@@ -6,7 +6,7 @@ import (
 	"time"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	chaincmdrunner "github.com/glodnet/chain/pkg/chaincmd/runner"
+	chaincmdrunner "github.com/goldnet/chain/pkg/chaincmd/runner"
 )
 
 const (

@@ -2,7 +2,7 @@ package keeper
 
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/glodnet/chain/x/token/types"
+	"github.com/goldnet/chain/x/token/types"
 )
 
 // GetParams get all parameters as types.Params

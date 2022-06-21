@@ -12,10 +12,10 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/glodnet/chain/testutil/network"
-	"github.com/glodnet/chain/testutil/nullify"
-	"github.com/glodnet/chain/x/identity/client/cli"
-	"github.com/glodnet/chain/x/identity/types"
+	"github.com/goldnet/chain/testutil/network"
+	"github.com/goldnet/chain/testutil/nullify"
+	"github.com/goldnet/chain/x/identity/client/cli"
+	"github.com/goldnet/chain/x/identity/types"
 )
 
 // Prevent strconv unused error

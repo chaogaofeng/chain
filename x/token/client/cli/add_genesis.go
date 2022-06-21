@@ -7,7 +7,7 @@ import (
 
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
-	"github.com/glodnet/chain/x/token/types"
+	"github.com/goldnet/chain/x/token/types"
 	"github.com/spf13/viper"
 
 	"github.com/spf13/cobra"

@@ -5,7 +5,7 @@ import "gogoproto/gogo.proto";
 import "cosmos/bank/v1beta1/bank.proto";
 import "cosmos/base/v1beta1/coin.proto";
 
-option go_package = "github.com/glodnet/chain/x/token/types";
+option go_package = "github.com/goldnet/chain/x/token/types";
 
 message Token {
   string symbol = 1;

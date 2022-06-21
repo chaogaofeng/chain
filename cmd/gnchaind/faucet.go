@@ -8,10 +8,10 @@ import (
 
 	"github.com/cosmos/cosmos-sdk/client/flags"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/glodnet/chain/pkg/chaincmd"
-	chaincmdrunner "github.com/glodnet/chain/pkg/chaincmd/runner"
-	"github.com/glodnet/chain/pkg/cosmosfaucet"
 	"github.com/goccy/go-yaml"
+	"github.com/goldnet/chain/pkg/chaincmd"
+	chaincmdrunner "github.com/goldnet/chain/pkg/chaincmd/runner"
+	"github.com/goldnet/chain/pkg/cosmosfaucet"
 	"github.com/imdario/mergo"
 	"github.com/spf13/cobra"
 	"github.com/tendermint/starport/starport/pkg/xhttp"

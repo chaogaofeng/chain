@@ -17,7 +17,7 @@ import (
 	authante "github.com/cosmos/cosmos-sdk/x/auth/ante"
 	ibcante "github.com/cosmos/ibc-go/v3/modules/core/ante"
 	ibckeeper "github.com/cosmos/ibc-go/v3/modules/core/keeper"
-	permissionmodulekeeper "github.com/glodnet/chain/x/permission/keeper"
+	permissionmodulekeeper "github.com/goldnet/chain/x/permission/keeper"
 
 	wasmtypes "github.com/CosmWasm/wasmd/x/wasm/types"
 	evmante "github.com/tharsis/ethermint/app/ante"

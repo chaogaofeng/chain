@@ -1,4 +1,4 @@
-module github.com/glodnet/chain
+module github.com/goldnet/chain
 
 go 1.16
 

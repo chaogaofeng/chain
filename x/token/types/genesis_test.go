@@ -3,7 +3,7 @@ package types_test
 import (
 	"testing"
 
-	"github.com/glodnet/chain/x/token/types"
+	"github.com/goldnet/chain/x/token/types"
 	"github.com/stretchr/testify/require"
 )
 

@@ -8,7 +8,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/codec"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	paramtypes "github.com/cosmos/cosmos-sdk/x/params/types"
-	"github.com/glodnet/chain/x/permission/types"
+	"github.com/goldnet/chain/x/permission/types"
 )
 
 type (

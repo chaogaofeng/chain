@@ -6,8 +6,8 @@ import (
 	"io/ioutil"
 
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
-	"github.com/glodnet/chain/pkg/cacmd/ca"
-	"github.com/glodnet/chain/x/identity/types"
+	"github.com/goldnet/chain/pkg/cacmd/ca"
+	"github.com/goldnet/chain/x/identity/types"
 	"github.com/spf13/viper"
 
 	"github.com/spf13/cobra"

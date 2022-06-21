@@ -3,7 +3,7 @@ package glodnet.chain.token;
 
 import "gogoproto/gogo.proto";
 
-option go_package = "github.com/glodnet/chain/x/token/types";
+option go_package = "github.com/goldnet/chain/x/token/types";
 
 // Params defines the parameters for the module.
 message Params {

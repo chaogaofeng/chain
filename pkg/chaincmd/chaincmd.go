@@ -39,7 +39,7 @@ const (
 	optionGasAdjustment                    = "--gas-adjustment"
 	optionGasPrices                        = "--gas-prices"
 	optionValidatorMoniker                 = "--moniker"
-	optionValidatorIP                 	   = "--ip"
+	optionValidatorIP                      = "--ip"
 	optionValidatorCommissionRate          = "--commission-rate"
 	optionValidatorCommissionMaxRate       = "--commission-max-rate"
 	optionValidatorCommissionMaxChangeRate = "--commission-max-change-rate"

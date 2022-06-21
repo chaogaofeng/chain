@@ -16,9 +16,9 @@ import (
 	cdctypes "github.com/cosmos/cosmos-sdk/codec/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/module"
-	"github.com/glodnet/chain/x/permission/client/cli"
-	"github.com/glodnet/chain/x/permission/keeper"
-	"github.com/glodnet/chain/x/permission/types"
+	"github.com/goldnet/chain/x/permission/client/cli"
+	"github.com/goldnet/chain/x/permission/keeper"
+	"github.com/goldnet/chain/x/permission/types"
 )
 
 var (

@@ -6,7 +6,7 @@ import "chain/token/params.proto";
 import "chain/token/token.proto";
 // this line is used by starport scaffolding # genesis/proto/import
 
-option go_package = "github.com/glodnet/chain/x/token/types";
+option go_package = "github.com/goldnet/chain/x/token/types";
 
 // GenesisState defines the token module's genesis state.
 message GenesisState {

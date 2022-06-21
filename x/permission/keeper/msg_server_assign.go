@@ -6,7 +6,7 @@ import (
 	"strings"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/glodnet/chain/x/permission/types"
+	"github.com/goldnet/chain/x/permission/types"
 )
 
 func (k msgServer) Assign(goCtx context.Context, msg *types.MsgAssign) (*types.MsgAssignResponse, error) {

@@ -2,8 +2,8 @@ package token
 
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/glodnet/chain/x/token/keeper"
-	"github.com/glodnet/chain/x/token/types"
+	"github.com/goldnet/chain/x/token/keeper"
+	"github.com/goldnet/chain/x/token/types"
 )
 
 // InitGenesis initializes the capability module's state from a provided genesis

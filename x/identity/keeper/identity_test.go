@@ -5,10 +5,10 @@ import (
 	"testing"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	keepertest "github.com/glodnet/chain/testutil/keeper"
-	"github.com/glodnet/chain/testutil/nullify"
-	"github.com/glodnet/chain/x/identity/keeper"
-	"github.com/glodnet/chain/x/identity/types"
+	keepertest "github.com/goldnet/chain/testutil/keeper"
+	"github.com/goldnet/chain/testutil/nullify"
+	"github.com/goldnet/chain/x/identity/keeper"
+	"github.com/goldnet/chain/x/identity/types"
 	"github.com/stretchr/testify/require"
 )
 

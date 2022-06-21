@@ -6,7 +6,7 @@ import "chain/identity/params.proto";
 import "chain/identity/identity.proto";
 // this line is used by starport scaffolding # genesis/proto/import
 
-option go_package = "github.com/glodnet/chain/x/identity/types";
+option go_package = "github.com/goldnet/chain/x/identity/types";
 
 // GenesisState defines the identity module's genesis state.
 message GenesisState {

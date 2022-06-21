@@ -3,7 +3,7 @@ package glodnet.chain.permission;
 
 import "gogoproto/gogo.proto";
 
-option go_package = "github.com/glodnet/chain/x/permission/types";
+option go_package = "github.com/goldnet/chain/x/permission/types";
 
 // Params defines the parameters for the module.
 message Params {

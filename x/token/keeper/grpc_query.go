@@ -1,7 +1,7 @@
 package keeper
 
 import (
-	"github.com/glodnet/chain/x/token/types"
+	"github.com/goldnet/chain/x/token/types"
 )
 
 var _ types.QueryServer = Keeper{}

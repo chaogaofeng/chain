@@ -3,7 +3,7 @@ package types_test
 import (
 	"testing"
 
-	"github.com/glodnet/chain/x/identity/types"
+	"github.com/goldnet/chain/x/identity/types"
 	"github.com/stretchr/testify/require"
 )
 

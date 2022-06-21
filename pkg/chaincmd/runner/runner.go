@@ -8,7 +8,7 @@ import (
 	"io"
 
 	"github.com/ghodss/yaml"
-	"github.com/glodnet/chain/pkg/chaincmd"
+	"github.com/goldnet/chain/pkg/chaincmd"
 	"github.com/pkg/errors"
 	"github.com/tendermint/starport/starport/pkg/cmdrunner"
 	"github.com/tendermint/starport/starport/pkg/cmdrunner/step"

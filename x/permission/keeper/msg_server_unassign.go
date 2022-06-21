@@ -5,7 +5,7 @@ import (
 	"strings"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/glodnet/chain/x/permission/types"
+	"github.com/goldnet/chain/x/permission/types"
 )
 
 func (k msgServer) Unassign(goCtx context.Context, msg *types.MsgUnassign) (*types.MsgUnassignResponse, error) {

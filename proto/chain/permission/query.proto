@@ -8,7 +8,7 @@ import "chain/permission/params.proto";
 import "chain/permission/role_account.proto";
 // this line is used by starport scaffolding # 1
 
-option go_package = "github.com/glodnet/chain/x/permission/types";
+option go_package = "github.com/goldnet/chain/x/permission/types";
 
 // Query defines the gRPC querier service.
 service Query {

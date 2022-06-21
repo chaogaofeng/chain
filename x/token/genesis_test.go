@@ -3,10 +3,10 @@ package token_test
 import (
 	"testing"
 
-	keepertest "github.com/glodnet/chain/testutil/keeper"
-	"github.com/glodnet/chain/testutil/nullify"
-	"github.com/glodnet/chain/x/token"
-	"github.com/glodnet/chain/x/token/types"
+	keepertest "github.com/goldnet/chain/testutil/keeper"
+	"github.com/goldnet/chain/testutil/nullify"
+	"github.com/goldnet/chain/x/token"
+	"github.com/goldnet/chain/x/token/types"
 	"github.com/stretchr/testify/require"
 )
 

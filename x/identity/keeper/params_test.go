@@ -3,8 +3,8 @@ package keeper_test
 import (
 	"testing"
 
-	testkeeper "github.com/glodnet/chain/testutil/keeper"
-	"github.com/glodnet/chain/x/identity/types"
+	testkeeper "github.com/goldnet/chain/testutil/keeper"
+	"github.com/goldnet/chain/x/identity/types"
 	"github.com/stretchr/testify/require"
 )
 

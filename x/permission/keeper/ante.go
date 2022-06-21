@@ -1,7 +1,7 @@
 package keeper
 
 import (
-	"github.com/glodnet/chain/x/permission/types"
+	"github.com/goldnet/chain/x/permission/types"
 	"strings"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"

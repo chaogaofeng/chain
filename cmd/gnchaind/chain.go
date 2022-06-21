@@ -14,8 +14,8 @@ import (
 
 	"github.com/cosmos/cosmos-sdk/client/flags"
 	"github.com/fatih/color"
-	"github.com/glodnet/chain/pkg/chaincmd"
-	chaincmdrunner "github.com/glodnet/chain/pkg/chaincmd/runner"
+	"github.com/goldnet/chain/pkg/chaincmd"
+	chaincmdrunner "github.com/goldnet/chain/pkg/chaincmd/runner"
 	"github.com/imdario/mergo"
 	"github.com/pelletier/go-toml"
 	"github.com/spf13/cobra"

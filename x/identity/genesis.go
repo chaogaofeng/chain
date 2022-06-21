@@ -2,8 +2,8 @@ package identity
 
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/glodnet/chain/x/identity/keeper"
-	"github.com/glodnet/chain/x/identity/types"
+	"github.com/goldnet/chain/x/identity/keeper"
+	"github.com/goldnet/chain/x/identity/types"
 )
 
 // InitGenesis initializes the capability module's state from a provided genesis

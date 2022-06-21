@@ -11,7 +11,7 @@ import (
 	"time"
 
 	"github.com/cenkalti/backoff"
-	"github.com/glodnet/chain/pkg/chaincmd"
+	"github.com/goldnet/chain/pkg/chaincmd"
 	"github.com/pkg/errors"
 	"github.com/tendermint/starport/starport/pkg/cmdrunner/step"
 )

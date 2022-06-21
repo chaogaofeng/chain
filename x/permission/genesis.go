@@ -2,8 +2,8 @@ package permission
 
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/glodnet/chain/x/permission/keeper"
-	"github.com/glodnet/chain/x/permission/types"
+	"github.com/goldnet/chain/x/permission/keeper"
+	"github.com/goldnet/chain/x/permission/types"
 )
 
 // InitGenesis initializes the capability module's state from a provided genesis
